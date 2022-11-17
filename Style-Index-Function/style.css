@@ -1,0 +1,4 @@
+table, th, td {
+    border: 2.5px solid cornflowerblue;
+    border-collapse: collapse;
+}
