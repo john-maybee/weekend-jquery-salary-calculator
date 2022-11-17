@@ -7,14 +7,29 @@
         <title>jQuery Music Theory</title>
     </head>
     <body>
-        <h1 id="title" class="color-antiquewhite">Salary Calculator</h1>
+        <div>
+            <h1 id="title" class="color-antiquewhite">Salary Calculator</h1>
+        </div>
         <div>
             <h2>Add Employee</h2>
-
+        </div>
+        <div id="employeeInformation">
+            <input type="text" placeholder="First Name" id="firstNameIn">
+            <input type="text" placeholder="Last Name" id="lastNameIn">
+            <input type="number" placeholder="ID" id="idIn">
+            <input type="text" placeholder="Title" id="jobTitleIn">
+            <input type="number" placeholder="Annual Salary" id="annualSalaryIn">
+        </div>
+        <div id="submitBtn">
             <button>Submit</button>
         </div>
-        <div id="content" >
+        <div id="employeesTitle">
+            <h2>Employees</h2>
         </div>
+        <div id="employeeTable">
+            <table></table>
+        </div>
+        <h3>Total Monthly: $<span id="totalMonthlyOut"></span></h3>
     </body>
     <a href="http://www.linkedin.com/in/john-d-maybee" class="button-style">take a look at my linkedin</a>
 </html>
