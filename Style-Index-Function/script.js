@@ -3,7 +3,18 @@ console.log('Hello, Earthlings!');
 
 $(document).ready(onReady);
 
+////////////////////////////////////////////////onReady////////////////////////////////////////////////
 
 function onReady() {
     console.log('in onReady ~(_:(1)');
-}
+    $('#submitbtn').on('click', addEmployee);
+    // need an .on 'click' created for the submitbtn
+    // need an .on 'click' created for the deletebtn
+
+
+} // end onReady function
+
+function addEmployee() {
+    console.log('inside addEmployee!');
+
+} // end addEmployee
