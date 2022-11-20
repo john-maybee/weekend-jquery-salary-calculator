@@ -7,14 +7,14 @@ $(document).ready(onReady);
 
 function onReady() {
     console.log('in onReady ~(_:(1)');
-    $('#submitbtn').on('click', addEmployee);
+    $('#submitBtn').on('click', addEmployee);
     // need an .on 'click' created for the submitbtn
     // need an .on 'click' created for the deletebtn
-
-
 } // end onReady function
 
 function addEmployee() {
-    console.log('inside addEmployee!');
-
+    console.log('in addEmployee!');
+    // need to append the information from the boxes to the end of the table in the DOM.
+    // will end up removing the table I previously entered in the dom and enter it here instead.
+    
 } // end addEmployee
