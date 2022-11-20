@@ -34,6 +34,40 @@ function addEmployee() {
             <td><button class="delete">Delete</button></td>
         </tr>`
     );
+    $('#firstNameIn').val('');  // clear input
+    $('#lastNameIn').val('');  // clear input
+    $('#idIn').val('');  // clear input
+    $('#jobTitleIn').val('');  // clear input
+    $('#annualSalaryIn').val('');  // clear input
 } // end addEmployee
 
 // Don't forget to clear the input boxes after you add the employee
+
+// Placeholder code I was using in the HTML as I was forming the page.
+{/* <tr style="height: 50px">
+                    <td>first name</td>
+                    <td>last name</td>
+                    <td>id#</td>
+                    <td>position</td>
+                    <td>$</td>
+                    <td></td>
+                </tr>
+                <tr style="height: 50px">
+                    <td>first name</td>
+                    <td>last name</td>
+                    <td>id#</td>
+                    <td>position</td>
+                    <td>$</td>
+                    <td></td>
+                </tr>
+                <tr style="height: 50px">
+                    <td>first name</td>
+                    <td>last name</td>
+                    <td>id#</td>
+                    <td>position</td>
+                    <td>$</td>
+                    <td></td>
+                </tr> */}
+// Code I was using for a blank row at the bottom originally.
+{/* <tr style="height: 50px">
+                </tr> */}
