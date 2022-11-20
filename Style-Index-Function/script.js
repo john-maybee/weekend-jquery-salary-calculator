@@ -1,7 +1,7 @@
 console.log('Hello, Earthlings!');
+// Make sure to look for monthly (not yearly) costs in the return from clicking the submit button
 
 $(document).ready(onReady);
-// am I supposed to know what the total monthly cost comes from? I've figured out that it's 1/12 of the annual salary.
 
 
 function onReady() {
