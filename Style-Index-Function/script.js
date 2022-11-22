@@ -52,7 +52,7 @@ function addEmployee() {
 // let selectedColor = $(this).data('color');
 
 
-///////////////////////////////////////////calculateMonthlyOut/////////////////////////////////////////////
+////////////////////////////calculateMonthlyOut and background red if over 20K////////////////////////////////////
 
 function calculateMonthlyOut() {
     let totalSalary = 0;
@@ -67,13 +67,17 @@ function calculateMonthlyOut() {
     let el = $('#totalMonthlyOut');
     el.empty();
     el.append(monthlySalary);
-    monthlyCostCeiling();
+    // monthlyCostCeiling();
+    if (monthlySalary > 20000){ 
+        $('#totalMonthlyOut').toggleClass('over-red');  // changes backround to red if over 20K
+        console.log('Your cost is over $20K!'); // Log letting us know why it triggered
+    }
 } // end of calculateMonthlyOut
 
 
-function monthlyCostCeiling() {
-    console.log('In monthlyCostCeiling');
-}
+// function monthlyCostCeiling() {
+//     console.log('In monthlyCostCeiling');
+// }
 
 
 ////////////////////////////////////////////////notes/////////////////////////////////////////////////

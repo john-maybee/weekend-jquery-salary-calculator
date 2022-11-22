@@ -15,3 +15,7 @@ table, th, td {
     border-collapse: collapse;
 }
 
+.over-red {
+    background-color: red;
+}
+
