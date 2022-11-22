@@ -5,13 +5,15 @@ $(document).ready(onReady);
 
 
 ////////////////////////////////////////////////onReady////////////////////////////////////////////////
-let employees = [];
+
+let employees = []; // created employees array
 
 function onReady() {
     console.log('in onReady ~(_:(1)');
     // need an .on 'click' created for the submitbtn
     $('#submitBtn').on('click', addEmployee);
     // need an .on 'click' created for the deletebtn
+    $('#employeeTable').on('click', '.deleteButton', deleteEmployee);
 } // end onReady function
 
 
@@ -27,7 +29,7 @@ function addEmployee() {
         idNum: $('#idIn').val(),
         position: $('#jobTitleIn').val(),
         salary: $('#annualSalaryIn').val(),
-    } // end of creating enteredEmployee
+    } // end of creating enteredEmployee object to push into employees array
     employees.push(enteredEmployee); // push new employee into array to access later
 
     $('#employeeTable').append(`
@@ -39,7 +41,8 @@ function addEmployee() {
     <td>$${enteredEmployee.salary}</td>
     <td><button class="deleteButton">Delete</button></td>
     </tr>`
-    );
+    ); // entered employee information into the employeeTable
+
     $('#firstNameIn').val('');  // clear input
     $('#lastNameIn').val('');  // clear input
     $('#idIn').val('');  // clear input
@@ -60,14 +63,19 @@ function calculateMonthlyOut() {
     for (let i=0; i<employees.length; i++) {
         totalSalary += Number(employees[i].salary);
     } // loop through to collect the salaries complete
+
     console.log('Yearly Salary: ', totalSalary); // got it working through this point.
-    const monthlySalary = totalSalary / 12;
+    let monthlySalary = totalSalary / 12;
     console.log('Monthly Salary: ',monthlySalary);
     // display the monthly Salary on the Dom
     let el = $('#totalMonthlyOut');
     el.empty();
     el.append(monthlySalary);
-    // monthlyCostCeiling();
+    
+    if (monthlySalary <= 20000){ 
+        $('#totalMonthlyOut').toggleClass('good-whitesmoke');  // changes backround to red if over 20K
+        console.log('Your cost is under $20K!'); // Log letting us know why it triggered
+    }
     if (monthlySalary > 20000){ 
         $('#totalMonthlyOut').toggleClass('over-red');  // changes backround to red if over 20K
         console.log('Your cost is over $20K!'); // Log letting us know why it triggered
@@ -75,13 +83,22 @@ function calculateMonthlyOut() {
 } // end of calculateMonthlyOut
 
 
-// function monthlyCostCeiling() {
-//     console.log('In monthlyCostCeiling');
-// }
+//////////////////////////////////////////////deleteEmployee//////////////////////////////////////////////
 
+function deleteEmployee() {
+    console.log('deleted');
+    $(this).parent().parent().remove(); // This should remove the button and the employee row associated
+    let el = $('#totalMonthlyOut');
+    el.empty();
+    el.append(''); // trying to make this bring the total back to 0 after, but it isnt working.
+    calculateMonthlyOut(); // This should correct the 
+} 
 
 ////////////////////////////////////////////////notes/////////////////////////////////////////////////
 
+// function monthlyCostCeiling() {
+//     console.log('In monthlyCostCeiling');
+// }
 
 // Don't forget to clear the input boxes after you add the employee
 
