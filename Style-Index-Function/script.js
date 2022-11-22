@@ -3,6 +3,7 @@ console.log('Hello, Earthlings!');
 
 $(document).ready(onReady);
 
+
 ////////////////////////////////////////////////onReady////////////////////////////////////////////////
 let employees = [];
 
@@ -12,6 +13,7 @@ function onReady() {
     $('#submitBtn').on('click', addEmployee);
     // need an .on 'click' created for the deletebtn
 } // end onReady function
+
 
 //////////////////////////////////////////////addEmployee//////////////////////////////////////////////
 
@@ -50,7 +52,7 @@ function addEmployee() {
 // let selectedColor = $(this).data('color');
 
 
-// 2nd try at this...grrrrrrr
+///////////////////////////////////////////calculateMonthlyOut/////////////////////////////////////////////
 
 function calculateMonthlyOut() {
     let totalSalary = 0;
@@ -59,7 +61,26 @@ function calculateMonthlyOut() {
         totalSalary += Number(employees[i].salary);
     } // loop through to collect the salaries complete
     console.log('Yearly Salary: ', totalSalary); // got it working through this point.
-} 
+    const monthlySalary = totalSalary / 12;
+    console.log('Monthly Salary: ',monthlySalary);
+    // display the monthly Salary on the Dom
+    let el = $('#totalMonthlyOut');
+    el.empty();
+    el.append(monthlySalary);
+    monthlyCostCeiling();
+} // end of calculateMonthlyOut
+
+
+function monthlyCostCeiling() {
+    console.log('In monthlyCostCeiling');
+}
+
+
+////////////////////////////////////////////////notes/////////////////////////////////////////////////
+
+
+// Don't forget to clear the input boxes after you add the employee
+
 //     let yearlyCost = 0;
 //     let employeeTable = $('#employeeTable');
 //     for (let i=0; i<employeeTable.length; i++){
@@ -71,28 +92,8 @@ function calculateMonthlyOut() {
 //     let el = $('#totalMonthlyOut'); 
 //     el.empty(); // remove any number that was previously listed as the monthly cost
 //     el.append(monthlyCost); // append the monthly cost to the DOM
-
+//
 // }
-// function calculateRemainingBudget() {
-//     // loop through purchases array
-//     let totalPrices = 0;
-//     for(let i=0; i<purchases.length; i++){
-//         // for each purchase, add up total of all prices
-//         totalPrices += Number(purchases[i].price);
-//     } // end for
-//     console.log('totalPrices:', totalPrices);
-//     // subtract totalPrices from budget for remainingBudget
-//     const remainingBudget = budget - totalPrices;
-//     // display remainingBudget
-//     let el = $( '#remainingBudgetOut');
-//     el.empty();
-//     el.append(remainingBudget);
-// } // end calculateRemainingBudget
-
-////////////////////////////////////////////////notes/////////////////////////////////////////////////
-
-
-// Don't forget to clear the input boxes after you add the employee
 
 // Placeholder code I was using in the HTML as I was forming the page.
 {/* <tr style="height: 50px">
