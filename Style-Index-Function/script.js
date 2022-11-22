@@ -10,7 +10,6 @@ function onReady() {
     // need an .on 'click' created for the submitbtn
     $('#submitBtn').on('click', addEmployee);
     // need an .on 'click' created for the deletebtn
-    calculateMonthlyOut();
 } // end onReady function
 
 //////////////////////////////////////////////addEmployee//////////////////////////////////////////////
@@ -41,25 +40,28 @@ function addEmployee() {
     $('#jobTitleIn').val('');  // clear input
     $('#annualSalaryIn').val('');  // clear input
     
+    calculateMonthlyOut(); // once this client is added we want it to calculate the monthly out
 } // end addEmployee
 
-
+// let selectedColor = $(this).data('color');
 
 function calculateMonthlyOut() {
     console.log('in monthlyOut');
-    let yearlyCost = 0;
-    let employeeTable = $('#employeeTable');
-    for (let i=0; i<employeeTable.length; i++){
-        // for each employee, divide their salary by 12 and add up the total of all 1/12 salaries
-        yearlyCost += employeeTable[i].salary;
-    } 
-    console.log(yearlyCost); // log the result in the console for reference
-    const monthlyCost = yearlyCost;
-    let el = $('#totalMonthlyOut'); 
-    el.empty(); // remove any number that was previously listed as the monthly cost
-    el.append(monthlyCost); // append the monthly cost to the DOM
 
 }
+//     let yearlyCost = 0;
+//     let employeeTable = $('#employeeTable');
+//     for (let i=0; i<employeeTable.length; i++){
+//         // for each employee, divide their salary by 12 and add up the total of all 1/12 salaries
+//         yearlyCost += employeeTable[i].salary;
+//     } 
+//     console.log(yearlyCost); // log the result in the console for reference
+//     const monthlyCost = yearlyCost;
+//     let el = $('#totalMonthlyOut'); 
+//     el.empty(); // remove any number that was previously listed as the monthly cost
+//     el.append(monthlyCost); // append the monthly cost to the DOM
+
+// }
 // function calculateRemainingBudget() {
 //     // loop through purchases array
 //     let totalPrices = 0;
