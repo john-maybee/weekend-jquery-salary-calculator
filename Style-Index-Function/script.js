@@ -7,9 +7,10 @@ $(document).ready(onReady);
 
 function onReady() {
     console.log('in onReady ~(_:(1)');
-    $('#submitBtn').on('click', addEmployee);
     // need an .on 'click' created for the submitbtn
+    $('#submitBtn').on('click', addEmployee);
     // need an .on 'click' created for the deletebtn
+    calculateMonthlyOut();
 } // end onReady function
 
 //////////////////////////////////////////////addEmployee//////////////////////////////////////////////
@@ -23,23 +24,60 @@ function addEmployee() {
     let idNum = $('#idIn').val();
     let position = $('#jobTitleIn').val();
     let salary = $('#annualSalaryIn').val();
-
+    
     $('#employeeTable').append(`
-        <tr style="height: 50px">
-            <td>${firstName}</td>
-            <td>${lastName}</td>
-            <td>${idNum}</td>
-            <td>${position}</td>
-            <td>$${salary}</td>
-            <td><button class="delete">Delete</button></td>
-        </tr>`
+    <tr style="height: 50px">
+    <td>${firstName}</td>
+    <td>${lastName}</td>
+    <td>${idNum}</td>
+    <td>${position}</td>
+    <td>$${salary}</td>
+    <td><button class="deleteButton">Delete</button></td>
+    </tr>`
     );
     $('#firstNameIn').val('');  // clear input
     $('#lastNameIn').val('');  // clear input
     $('#idIn').val('');  // clear input
     $('#jobTitleIn').val('');  // clear input
     $('#annualSalaryIn').val('');  // clear input
+    
 } // end addEmployee
+
+
+
+function calculateMonthlyOut() {
+    console.log('in monthlyOut');
+    let yearlyCost = 0;
+    let employeeTable = $('#employeeTable');
+    for (let i=0; i<employeeTable.length; i++){
+        // for each employee, divide their salary by 12 and add up the total of all 1/12 salaries
+        yearlyCost += employeeTable[i].salary;
+    } 
+    console.log(yearlyCost); // log the result in the console for reference
+    const monthlyCost = yearlyCost;
+    let el = $('#totalMonthlyOut'); 
+    el.empty(); // remove any number that was previously listed as the monthly cost
+    el.append(monthlyCost); // append the monthly cost to the DOM
+
+}
+// function calculateRemainingBudget() {
+//     // loop through purchases array
+//     let totalPrices = 0;
+//     for(let i=0; i<purchases.length; i++){
+//         // for each purchase, add up total of all prices
+//         totalPrices += Number(purchases[i].price);
+//     } // end for
+//     console.log('totalPrices:', totalPrices);
+//     // subtract totalPrices from budget for remainingBudget
+//     const remainingBudget = budget - totalPrices;
+//     // display remainingBudget
+//     let el = $( '#remainingBudgetOut');
+//     el.empty();
+//     el.append(remainingBudget);
+// } // end calculateRemainingBudget
+
+////////////////////////////////////////////////notes/////////////////////////////////////////////////
+
 
 // Don't forget to clear the input boxes after you add the employee
 
