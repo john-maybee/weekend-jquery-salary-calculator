@@ -55,11 +55,11 @@ function addEmployee() {
 function calculateMonthlyOut() {
     let totalSalary = 0;
     console.log('in monthlyOut');
-    for (object of employees) {
-
-    }
-    // let yearlyCost =
-}
+    for (let i=0; i<employees.length; i++) {
+        totalSalary += Number(employees[i].salary);
+    } // loop through to collect the salaries complete
+    console.log('Yearly Salary: ', totalSalary); // got it working through this point.
+} 
 //     let yearlyCost = 0;
 //     let employeeTable = $('#employeeTable');
 //     for (let i=0; i<employeeTable.length; i++){
