@@ -4,6 +4,7 @@ console.log('Hello, Earthlings!');
 $(document).ready(onReady);
 
 ////////////////////////////////////////////////onReady////////////////////////////////////////////////
+let employees = [];
 
 function onReady() {
     console.log('in onReady ~(_:(1)');
@@ -18,19 +19,22 @@ function addEmployee() {
     console.log('in addEmployee!');
     // need to append the information from the boxes to the end of the table in the DOM.
     // will end up removing the table I previously entered in the dom and enter it here instead.
-    let firstName = $('#firstNameIn').val();
-    let lastName = $('#lastNameIn').val();
-    let idNum = $('#idIn').val();
-    let position = $('#jobTitleIn').val();
-    let salary = $('#annualSalaryIn').val();
-    
+    let enteredEmployee = {
+        firstName: $('#firstNameIn').val(),
+        lastName: $('#lastNameIn').val(),
+        idNum: $('#idIn').val(),
+        position: $('#jobTitleIn').val(),
+        salary: $('#annualSalaryIn').val(),
+    } // end of creating enteredEmployee
+    employees.push(enteredEmployee); // push new employee into array to access later
+
     $('#employeeTable').append(`
     <tr style="height: 50px">
-    <td>${firstName}</td>
-    <td>${lastName}</td>
-    <td>${idNum}</td>
-    <td>${position}</td>
-    <td>$${salary}</td>
+    <td>${enteredEmployee.firstName}</td>
+    <td>${enteredEmployee.lastName}</td>
+    <td>${enteredEmployee.idNum}</td>
+    <td>${enteredEmployee.position}</td>
+    <td>$${enteredEmployee.salary}</td>
     <td><button class="deleteButton">Delete</button></td>
     </tr>`
     );
@@ -45,9 +49,16 @@ function addEmployee() {
 
 // let selectedColor = $(this).data('color');
 
-function calculateMonthlyOut() {
-    console.log('in monthlyOut');
 
+// 2nd try at this...grrrrrrr
+
+function calculateMonthlyOut() {
+    let totalSalary = 0;
+    console.log('in monthlyOut');
+    for (object of employees) {
+
+    }
+    // let yearlyCost =
 }
 //     let yearlyCost = 0;
 //     let employeeTable = $('#employeeTable');
